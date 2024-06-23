@@ -8,6 +8,28 @@ shofi is a Rust program that concurrently reads and displays the contents of fil
 - Concurrent file processing
 - Formatted display of filenames and their contents
 
+## Quick Installation
+
+You can use the following one-liner command to clone the repository, build the project, and install the binary:
+
+```bash
+git clone https://github.com/ie-Yoshisaur/shofil.git && cd shofil && cargo build --release && sudo mv target/release/shofi /usr/local/bin/
+```
+
+This command does the following:
+1. Clones the repository
+2. Changes into the project directory
+3. Builds the project in release mode
+4. Moves the binary to /usr/local/bin/ (which is typically in your PATH)
+
+Note: This command uses `sudo` to move the binary to /usr/local/bin/. You'll be prompted for your password.
+
+If you prefer not to use sudo or want to install to a different location, you can modify the last part of the command. For example, to install to ~/bin/:
+
+```bash
+git clone https://github.com/ie-Yoshisaur/shofil.git && cd shofil && cargo build --release && mkdir -p ~/bin && mv target/release/shofi ~/bin/ && echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
+```
+
 ## Usage
 
 ```
@@ -26,17 +48,6 @@ This example will display the contents of all .txt files in the current director
 - glob: For file pattern matching
 - rayon: For concurrent processing
 - thiserror: For error handling
-
-## Installation
-
-1. Ensure you have Rust and cargo installed.
-2. In the project directory, run:
-
-```
-cargo build --release
-```
-
-3. The executable will be generated at `target/release/shofi`.
 
 ## Error Handling
 
